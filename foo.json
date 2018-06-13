@@ -1,0 +1,907 @@
+{
+  "name": "Level 1",
+  "rooms": [
+    {
+      "name": "Room",
+      "position": [
+        3,
+        1
+      ],
+      "elements": [
+        {
+          "name": "foe",
+          "x": 32,
+          "y": 25
+        },
+        {
+          "name": "chest",
+          "x": 37,
+          "y": 36
+        },
+        {
+          "name": "boss",
+          "x": 7,
+          "y": 17
+        },
+        {
+          "name": "foe",
+          "x": 4,
+          "y": 40
+        },
+        {
+          "name": "element",
+          "x": 34,
+          "y": 39
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        2,
+        3
+      ],
+      "elements": [
+        {
+          "name": "boss",
+          "x": 18,
+          "y": 28
+        },
+        {
+          "name": "boss",
+          "x": 17,
+          "y": 35
+        },
+        {
+          "name": "chest",
+          "x": 38,
+          "y": 8
+        },
+        {
+          "name": "coin",
+          "x": 13,
+          "y": 49
+        },
+        {
+          "name": "hole",
+          "x": 5,
+          "y": 16
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        4,
+        1
+      ],
+      "elements": [
+        {
+          "name": "boss",
+          "x": 17,
+          "y": 3
+        },
+        {
+          "name": "element",
+          "x": 13,
+          "y": 28
+        },
+        {
+          "name": "foe",
+          "x": 49,
+          "y": 10
+        },
+        {
+          "name": "foe",
+          "x": 9,
+          "y": 5
+        },
+        {
+          "name": "boss",
+          "x": 1,
+          "y": 20
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        0,
+        0
+      ],
+      "elements": [
+        {
+          "name": "coin",
+          "x": 39,
+          "y": 44
+        },
+        {
+          "name": "coin",
+          "x": 12,
+          "y": 24
+        },
+        {
+          "name": "hole",
+          "x": 3,
+          "y": 45
+        },
+        {
+          "name": "element",
+          "x": 35,
+          "y": 0
+        },
+        {
+          "name": "coin",
+          "x": 25,
+          "y": 49
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        5,
+        1
+      ],
+      "elements": [
+        {
+          "name": "hole",
+          "x": 36,
+          "y": 18
+        },
+        {
+          "name": "foe",
+          "x": 19,
+          "y": 23
+        },
+        {
+          "name": "foe",
+          "x": 14,
+          "y": 39
+        },
+        {
+          "name": "hole",
+          "x": 22,
+          "y": 28
+        },
+        {
+          "name": "element",
+          "x": 31,
+          "y": 2
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        0,
+        3
+      ],
+      "elements": [
+        {
+          "name": "coin",
+          "x": 26,
+          "y": 8
+        },
+        {
+          "name": "coin",
+          "x": 12,
+          "y": 4
+        },
+        {
+          "name": "boss",
+          "x": 36,
+          "y": 20
+        },
+        {
+          "name": "foe",
+          "x": 44,
+          "y": 39
+        },
+        {
+          "name": "boss",
+          "x": 22,
+          "y": 42
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        4,
+        1
+      ],
+      "elements": [
+        {
+          "name": "hole",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "name": "chest",
+          "x": 20,
+          "y": 43
+        },
+        {
+          "name": "foe",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "name": "hole",
+          "x": 42,
+          "y": 5
+        },
+        {
+          "name": "boss",
+          "x": 44,
+          "y": 7
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        3,
+        1
+      ],
+      "elements": [
+        {
+          "name": "foe",
+          "x": 16,
+          "y": 11
+        },
+        {
+          "name": "foe",
+          "x": 3,
+          "y": 24
+        },
+        {
+          "name": "element",
+          "x": 12,
+          "y": 46
+        },
+        {
+          "name": "chest",
+          "x": 15,
+          "y": 4
+        },
+        {
+          "name": "chest",
+          "x": 24,
+          "y": 0
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        4,
+        0
+      ],
+      "elements": [
+        {
+          "name": "chest",
+          "x": 11,
+          "y": 2
+        },
+        {
+          "name": "chest",
+          "x": 46,
+          "y": 10
+        },
+        {
+          "name": "chest",
+          "x": 20,
+          "y": 13
+        },
+        {
+          "name": "coin",
+          "x": 18,
+          "y": 44
+        },
+        {
+          "name": "coin",
+          "x": 36,
+          "y": 33
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        2,
+        0
+      ],
+      "elements": [
+        {
+          "name": "foe",
+          "x": 9,
+          "y": 33
+        },
+        {
+          "name": "boss",
+          "x": 15,
+          "y": 16
+        },
+        {
+          "name": "foe",
+          "x": 47,
+          "y": 38
+        },
+        {
+          "name": "coin",
+          "x": 37,
+          "y": 40
+        },
+        {
+          "name": "chest",
+          "x": 29,
+          "y": 39
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        4,
+        3
+      ],
+      "elements": [
+        {
+          "name": "element",
+          "x": 14,
+          "y": 12
+        },
+        {
+          "name": "coin",
+          "x": 25,
+          "y": 4
+        },
+        {
+          "name": "element",
+          "x": 2,
+          "y": 18
+        },
+        {
+          "name": "hole",
+          "x": 36,
+          "y": 6
+        },
+        {
+          "name": "boss",
+          "x": 0,
+          "y": 7
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        1,
+        2
+      ],
+      "elements": [
+        {
+          "name": "chest",
+          "x": 13,
+          "y": 16
+        },
+        {
+          "name": "element",
+          "x": 20,
+          "y": 42
+        },
+        {
+          "name": "boss",
+          "x": 30,
+          "y": 36
+        },
+        {
+          "name": "boss",
+          "x": 33,
+          "y": 14
+        },
+        {
+          "name": "coin",
+          "x": 26,
+          "y": 37
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        5,
+        2
+      ],
+      "elements": [
+        {
+          "name": "coin",
+          "x": 26,
+          "y": 16
+        },
+        {
+          "name": "coin",
+          "x": 46,
+          "y": 42
+        },
+        {
+          "name": "chest",
+          "x": 31,
+          "y": 46
+        },
+        {
+          "name": "foe",
+          "x": 27,
+          "y": 22
+        },
+        {
+          "name": "coin",
+          "x": 45,
+          "y": 3
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        5,
+        2
+      ],
+      "elements": [
+        {
+          "name": "hole",
+          "x": 21,
+          "y": 1
+        },
+        {
+          "name": "chest",
+          "x": 15,
+          "y": 35
+        },
+        {
+          "name": "boss",
+          "x": 24,
+          "y": 38
+        },
+        {
+          "name": "hole",
+          "x": 27,
+          "y": 31
+        },
+        {
+          "name": "element",
+          "x": 14,
+          "y": 49
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        4,
+        3
+      ],
+      "elements": [
+        {
+          "name": "chest",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "name": "chest",
+          "x": 20,
+          "y": 8
+        },
+        {
+          "name": "chest",
+          "x": 6,
+          "y": 24
+        },
+        {
+          "name": "hole",
+          "x": 12,
+          "y": 40
+        },
+        {
+          "name": "boss",
+          "x": 14,
+          "y": 45
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        4,
+        2
+      ],
+      "elements": [
+        {
+          "name": "hole",
+          "x": 34,
+          "y": 40
+        },
+        {
+          "name": "hole",
+          "x": 13,
+          "y": 46
+        },
+        {
+          "name": "boss",
+          "x": 11,
+          "y": 8
+        },
+        {
+          "name": "foe",
+          "x": 25,
+          "y": 21
+        },
+        {
+          "name": "element",
+          "x": 35,
+          "y": 24
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        4,
+        0
+      ],
+      "elements": [
+        {
+          "name": "element",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "name": "chest",
+          "x": 8,
+          "y": 18
+        },
+        {
+          "name": "hole",
+          "x": 31,
+          "y": 45
+        },
+        {
+          "name": "element",
+          "x": 5,
+          "y": 23
+        },
+        {
+          "name": "coin",
+          "x": 3,
+          "y": 19
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        5,
+        0
+      ],
+      "elements": [
+        {
+          "name": "chest",
+          "x": 30,
+          "y": 47
+        },
+        {
+          "name": "coin",
+          "x": 39,
+          "y": 25
+        },
+        {
+          "name": "foe",
+          "x": 0,
+          "y": 44
+        },
+        {
+          "name": "element",
+          "x": 37,
+          "y": 38
+        },
+        {
+          "name": "hole",
+          "x": 27,
+          "y": 29
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        2,
+        1
+      ],
+      "elements": [
+        {
+          "name": "chest",
+          "x": 34,
+          "y": 45
+        },
+        {
+          "name": "coin",
+          "x": 36,
+          "y": 49
+        },
+        {
+          "name": "element",
+          "x": 32,
+          "y": 10
+        },
+        {
+          "name": "hole",
+          "x": 21,
+          "y": 19
+        },
+        {
+          "name": "hole",
+          "x": 16,
+          "y": 30
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        5,
+        0
+      ],
+      "elements": [
+        {
+          "name": "coin",
+          "x": 33,
+          "y": 33
+        },
+        {
+          "name": "boss",
+          "x": 8,
+          "y": 38
+        },
+        {
+          "name": "hole",
+          "x": 4,
+          "y": 30
+        },
+        {
+          "name": "hole",
+          "x": 21,
+          "y": 28
+        },
+        {
+          "name": "coin",
+          "x": 9,
+          "y": 1
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        5,
+        0
+      ],
+      "elements": [
+        {
+          "name": "foe",
+          "x": 47,
+          "y": 31
+        },
+        {
+          "name": "boss",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "name": "hole",
+          "x": 17,
+          "y": 16
+        },
+        {
+          "name": "boss",
+          "x": 37,
+          "y": 12
+        },
+        {
+          "name": "coin",
+          "x": 11,
+          "y": 10
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        0,
+        2
+      ],
+      "elements": [
+        {
+          "name": "boss",
+          "x": 41,
+          "y": 45
+        },
+        {
+          "name": "coin",
+          "x": 26,
+          "y": 34
+        },
+        {
+          "name": "chest",
+          "x": 9,
+          "y": 11
+        },
+        {
+          "name": "chest",
+          "x": 6,
+          "y": 29
+        },
+        {
+          "name": "boss",
+          "x": 40,
+          "y": 6
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        2,
+        0
+      ],
+      "elements": [
+        {
+          "name": "foe",
+          "x": 18,
+          "y": 36
+        },
+        {
+          "name": "foe",
+          "x": 39,
+          "y": 42
+        },
+        {
+          "name": "foe",
+          "x": 31,
+          "y": 47
+        },
+        {
+          "name": "coin",
+          "x": 3,
+          "y": 44
+        },
+        {
+          "name": "boss",
+          "x": 23,
+          "y": 41
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        3,
+        3
+      ],
+      "elements": [
+        {
+          "name": "element",
+          "x": 12,
+          "y": 44
+        },
+        {
+          "name": "coin",
+          "x": 33,
+          "y": 48
+        },
+        {
+          "name": "element",
+          "x": 29,
+          "y": 18
+        },
+        {
+          "name": "element",
+          "x": 47,
+          "y": 36
+        },
+        {
+          "name": "boss",
+          "x": 38,
+          "y": 2
+        }
+      ],
+      "w": 50,
+      "h": 50
+    },
+    {
+      "name": "Room",
+      "position": [
+        0,
+        3
+      ],
+      "elements": [
+        {
+          "name": "foe",
+          "x": 45,
+          "y": 23
+        },
+        {
+          "name": "coin",
+          "x": 31,
+          "y": 2
+        },
+        {
+          "name": "coin",
+          "x": 16,
+          "y": 42
+        },
+        {
+          "name": "element",
+          "x": 43,
+          "y": 26
+        },
+        {
+          "name": "boss",
+          "x": 44,
+          "y": 23
+        }
+      ],
+      "w": 50,
+      "h": 50
+    }
+  ],
+  "w": 6,
+  "h": 4
+}
