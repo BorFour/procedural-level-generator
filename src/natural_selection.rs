@@ -1,7 +1,6 @@
+use std::cmp;
 use std::io::stdout;
 use std::io::Write;
-use std::cmp;
-
 
 use rand;
 use rand::distributions::Range;
@@ -13,10 +12,10 @@ use rsgenetic::sim::seq::Simulator;
 use rsgenetic::sim::*;
 
 use generation;
-use level::Level;
 use position::search_path_in_level;
-use position::Pos;
+// use position::Pos;
 use room::Room;
+use room_level::RoomLevel;
 
 static MUT_PROB: f64 = 0.85;
 static CROSS_PROB: f64 = 1.00;
@@ -24,7 +23,7 @@ static N_ROOMS_PER_LEVEL: usize = 15;
 static N_ELEMENTS_PER_ROOM: usize = 5;
 static ZIP_CROSSOVER: bool = false;
 
-impl Phenotype<i32> for Level {
+impl Phenotype<i32> for RoomLevel {
     // How fit is this individual?
     fn fitness(&self) -> i32 {
         let result = search_path_in_level(&self);
@@ -37,7 +36,7 @@ impl Phenotype<i32> for Level {
     }
 
     // Have two individuals create a new individual
-    fn crossover(&self, other: &Level) -> Level {
+    fn crossover(&self, other: &RoomLevel) -> RoomLevel {
         let mut rng = rand::thread_rng();
         let mut cp = self.clone();
 
@@ -49,7 +48,11 @@ impl Phenotype<i32> for Level {
             if ZIP_CROSSOVER {
                 for pair in self.rooms.iter().zip(&other.rooms) {
                     let x: usize = Range::new(0, 2).sample(&mut rng);
-                    let room = if x == 0 {pair.0} else {pair.1};
+                    let room = if x == 0 {
+                        pair.0
+                    } else {
+                        pair.1
+                    };
                     new_rooms.push(room.clone());
                 }
             } else {
@@ -64,11 +67,14 @@ impl Phenotype<i32> for Level {
                         new_rooms.push(self_room.unwrap().clone());
                     } else {
                         let x: usize = Range::new(0, 2).sample(&mut rng);
-                        let room = if x == 0 {self_room.unwrap()} else {other_room.unwrap()};
+                        let room = if x == 0 {
+                            self_room.unwrap()
+                        } else {
+                            other_room.unwrap()
+                        };
                         new_rooms.push(room.clone());
                     }
                 }
-
             }
             cp.rooms = new_rooms;
         }
@@ -76,7 +82,7 @@ impl Phenotype<i32> for Level {
     }
 
     // Mutate an individual, changing its state
-    fn mutate(&self) -> Level {
+    fn mutate(&self) -> RoomLevel {
         // TODO: mutate by deleting or inserting a new room
 
         let mut rng = rand::thread_rng();
@@ -94,7 +100,8 @@ impl Phenotype<i32> for Level {
     }
 }
 
-pub fn test_genetic(level: &Level) {
+#[allow(unused)]
+pub fn test_genetic(level: &RoomLevel) {
     let mut level2 = level.clone();
 
     for i in 0..level2.rooms.len() {
@@ -113,9 +120,9 @@ pub fn test_genetic(level: &Level) {
 }
 
 pub fn run_genertic_algorithm(iters: u64) {
-    fn generate_individual() -> Level {
-        let mut level = Level::new(
-            "Level".to_owned(),
+    fn generate_individual() -> RoomLevel {
+        let mut level = RoomLevel::new(
+            "RoomLevel".to_owned(),
             Vec::new()
             // generation::generate_rooms_from_positions(vec![
             //     Pos(1, 0), Pos(2, 0), Pos(2, 1), Pos(2, 2), Pos(2, 3), Pos(3, 3), Pos(3, 2), Pos(3, 1),
@@ -155,7 +162,7 @@ pub fn run_genertic_algorithm(iters: u64) {
     // s.run();
     for i in 0..iters {
         s.checked_step();
-        print!("{}", if i % 10 == 9 {"x"} else {"."});
+        print!("{}", if i % 10 == 9 { "x" } else { "." });
         stdout().flush();
     }
     println!();

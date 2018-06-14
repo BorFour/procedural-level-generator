@@ -1,12 +1,13 @@
-use pathfinding::bfs::*;
-use pathfinding::prelude::{absdiff, astar, idastar};
+// use pathfinding::bfs::*;
+use pathfinding::prelude::{astar};
 
-use level::Level;
+use room_level::RoomLevel;
 
 #[derive(Clone, Copy, Serialize, Deserialize, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct Pos(pub i32, pub i32);
 
 impl Pos {
+    #[allow(unused)]
     pub fn neighbours(&self) -> Vec<Pos> {
         let &Pos(x, y) = self;
         vec![Pos(x - 1, y), Pos(x + 1, y), Pos(x, y - 1), Pos(x, y + 1)]
@@ -33,6 +34,7 @@ impl Pos {
     }
 }
 
+#[allow(unused)]
 pub fn search_path() {
     static GOAL: Pos = Pos(4, 14);
     let result = astar(
@@ -50,9 +52,9 @@ pub fn search_path() {
     }
 }
 
-pub fn search_path_in_level(level: &Level) -> Option<(Vec<Pos>, usize)> {
+pub fn search_path_in_level(level: &RoomLevel) -> Option<(Vec<Pos>, usize)> {
     let start: Pos = level.rooms[0].position.clone();
-    let goal: Pos = level.rooms[level.rooms.len()-1].position.clone();
+    let goal: Pos = level.rooms[level.rooms.len() - 1].position.clone();
     // println!("Start: {:?}", start);
     // println!("Goal: {:?}", goal);
     astar(

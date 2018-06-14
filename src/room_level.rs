@@ -4,33 +4,33 @@ extern crate serde_json;
 use std::fs::File;
 use std::io::Result;
 
-use rsgenetic::pheno::*;
+// use rsgenetic::pheno::*;
 
-use room;
 use design_element::HasReward;
 use position::Pos;
+use room;
 
 #[derive(Serialize, Deserialize, Clone)]
-pub struct Level {
+pub struct RoomLevel {
     pub name: String,
     pub rooms: Vec<room::Room>,
     pub w: u64,
-    pub h: u64
+    pub h: u64,
 }
 
-impl Level {
-    pub fn new(name: String, rooms: Vec<room::Room>) -> Level {
-        Level {
+impl RoomLevel {
+    pub fn new(name: String, rooms: Vec<room::Room>) -> RoomLevel {
+        RoomLevel {
             name: name,
             rooms: rooms,
             w: 6,
-            h: 4
+            h: 4,
         }
     }
 
     pub fn show(&self) {
         print!(
-            "Reward for level {:?}: {:?}",
+            "Reward for RoomLevel {:?}: {:?}",
             self.name,
             self.calculate_reward()
         );
@@ -58,22 +58,21 @@ impl Level {
     }
 
     pub fn neighbours_from_position(&self, position: Pos) -> Vec<(Pos, usize)> {
-        let room = self.get_room_from_position(&position);
         let mut result = Vec::new();
 
-        if let Some(r) = self.get_room_from_position(&Pos(position.0-1, position.1)) {
+        if let Some(r) = self.get_room_from_position(&Pos(position.0 - 1, position.1)) {
             result.push(r);
         }
 
-        if let Some(r) = self.get_room_from_position(&Pos(position.0+1, position.1)) {
+        if let Some(r) = self.get_room_from_position(&Pos(position.0 + 1, position.1)) {
             result.push(r);
         }
 
-        if let Some(r) = self.get_room_from_position(&Pos(position.0, position.1-1)) {
+        if let Some(r) = self.get_room_from_position(&Pos(position.0, position.1 - 1)) {
             result.push(r);
         }
 
-        if let Some(r) = self.get_room_from_position(&Pos(position.0, position.1+1)) {
+        if let Some(r) = self.get_room_from_position(&Pos(position.0, position.1 + 1)) {
             result.push(r);
         }
 
@@ -82,18 +81,16 @@ impl Level {
 
     pub fn get_rewards_from_path(&self, path: &Vec<Pos>) -> Vec<i32> {
         path.into_iter()
-        .map(|p| self.get_room_from_position(&p))
-        .map(|option| {
-            match option {
+            .map(|p| self.get_room_from_position(&p))
+            .map(|option| match option {
                 Some(room) => room.calculate_reward(),
-                None => 0
-            }
-        })
-        .collect()
+                None => 0,
+            })
+            .collect()
     }
 }
 
-impl HasReward for Level {
+impl HasReward for RoomLevel {
     fn calculate_reward(&self) -> i32 {
         return self.rooms
             .iter()

@@ -3,13 +3,14 @@ use rand::distributions::Range;
 use rand::prelude::*;
 
 use design_element::GenericDesignElement;
-use level::Level;
 use position::Pos;
 use room::Room;
+use room_level::RoomLevel;
 use types::Location;
 
 // Generation functions
 
+#[allow(unused)]
 pub fn generate_rooms_from_positions(positions: Vec<Pos>) -> Vec<Room> {
     positions
         .into_iter()
@@ -38,13 +39,13 @@ pub fn new_element_in_room(room: &Room) -> GenericDesignElement {
     new_random_design_element(location.0, location.1)
 }
 
-pub fn generate_rooms_in_level(level: &Level, n_rooms: usize) -> Vec<Room> {
+pub fn generate_rooms_in_level(level: &RoomLevel, n_rooms: usize) -> Vec<Room> {
     let mut rooms: Vec<Room> = Vec::new();
     for _ in 0..n_rooms {
         loop {
             let coordinates: Location = random_coordinates((0, level.w), (0, level.h));
             let position: Pos = Pos(coordinates.0 as i32, coordinates.1 as i32);
-            if let Some(room) = level.get_room_from_position(&position) {
+            if let Some(_room) = level.get_room_from_position(&position) {
                 continue;
             }
             rooms.push(Room::new("Room".to_owned(), position, Vec::new()));

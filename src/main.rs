@@ -3,23 +3,23 @@ extern crate serde_derive;
 // This dependency needs to be here and it doesn't compile if you put it in design_element.rs
 // Why??
 extern crate pathfinding;
-extern crate rsgenetic;
 extern crate rand;
+extern crate rsgenetic;
 
 // use std::collections::HashMap;
 mod design_element;
 mod generation;
-mod level;
+mod natural_selection;
 mod position;
 mod room;
+mod room_level;
 mod types;
-mod natural_selection;
 
 // use design_element::HasReward;
-use design_element::GenericDesignElement;
-use level::Level;
-use position::Pos;
-use room::Room;
+// use design_element::GenericDesignElement;
+// use position::Pos;
+// use room::Room;
+use room_level::RoomLevel;
 
 fn main() {
     // let elements_data = vec![("element", 0, 5), ("coin", 2, 3), ("foe", 1, 1)];
@@ -32,8 +32,8 @@ fn main() {
     //         .push(GenericDesignElement::new(data.0.to_owned(), data.1, data.2));
     // }
 
-    let mut level1 = Level::new(
-        "Level 1".to_owned(),
+    let mut level1 = RoomLevel::new(
+        "RoomLevel 1".to_owned(),
         Vec::new()
         // generation::generate_rooms_from_positions(vec![
         //     Pos(1, 0), Pos(2, 0), Pos(2, 1), Pos(2, 2), Pos(2, 3), Pos(3, 3), Pos(3, 2), Pos(3, 1),
@@ -89,6 +89,4 @@ fn main() {
 
     // natural_selection::test_genetic(&level1);
     natural_selection::run_genertic_algorithm(200);
-
-
 }

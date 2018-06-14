@@ -39,6 +39,7 @@ impl GenericDesignElement {
         ]
     }
 
+    #[allow(unused)]
     pub fn show(&self) {
         println!(
             "Reward for {:?}: {:?} in [{:?}, {:?}]",
