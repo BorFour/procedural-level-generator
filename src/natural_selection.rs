@@ -15,6 +15,7 @@ use rsgenetic::sim::*;
 use position::search_path_in_level;
 // use position::Pos;
 // use room::Room;
+use level::Level;
 use room_level::RoomLevel;
 
 #[allow(unused)]
@@ -36,11 +37,11 @@ pub fn test_genetic(level: &RoomLevel) {
     level.mutate().show();
 }
 
-pub fn run_genetic_algorithm(iters: u64, generate_individual: fn() -> RoomLevel) -> RoomLevel {
+pub fn run_genetic_algorithm<T: Level>(iters: u64) -> T {
 
     let population_size: usize = 200;
     let mut population = (0..population_size)
-        .map(|_i| generate_individual())
+        .map(|_i| T::generate_individual())
         .collect();
     let mut s = Simulator::builder(&mut population)
                     .set_selector(Box::new(TournamentSelector::new(population_size/5, 10)))
@@ -64,11 +65,5 @@ pub fn run_genetic_algorithm(iters: u64, generate_individual: fn() -> RoomLevel)
     //     room.show();
     //     // println!("{:?}", room.position);
     // }
-    if let Some(solution) = search_path_in_level(&result) {
-        println!("Path from start to exit: {:?}", solution.0);
-        for pos in solution.0 {
-            result.get_room_from_position(&pos).unwrap().show();
-        }
-    }
     return result.clone();
 }

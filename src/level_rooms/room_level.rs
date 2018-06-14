@@ -43,18 +43,6 @@ impl RoomLevel {
         }
     }
 
-    pub fn show(&self) {
-        print!(
-            "Reward for RoomLevel {:?}: {:?}",
-            self.name,
-            self.calculate_reward()
-        );
-        for room in &self.rooms {
-            print!(" {:?}", room.position);
-        }
-        println!();
-    }
-
     pub fn save_to_file(&self) -> Result<()> {
         let f = File::create("foo.json")?;
         serde_json::to_writer_pretty(&f, &self).unwrap();
@@ -182,7 +170,36 @@ impl Phenotype<i32> for RoomLevel {
     }
 }
 
-impl Level for RoomLevel {}
+impl Level for RoomLevel {
+    fn generate_individual() -> RoomLevel {
+        let mut level = RoomLevel::new(
+            "RoomLevel".to_owned(),
+            Vec::new()
+        );
+
+        level.rooms = generation::generate_rooms_in_level(&level, N_ROOMS_PER_LEVEL);
+
+        for i in 0..level.rooms.len() {
+            // The lifetime of room only needs to be this long
+            if let Some(r) = level.rooms.get_mut(i) {
+                r.populate(N_ELEMENTS_PER_ROOM);
+            }
+        }
+        level
+    }
+
+    fn show(&self) {
+        print!(
+            "Reward for RoomLevel {:?}: {:?}",
+            self.name,
+            self.calculate_reward()
+        );
+        for room in &self.rooms {
+            print!(" {:?}", room.position);
+        }
+        println!();
+    }
+}
 
 impl HasReward for RoomLevel {
     fn calculate_reward(&self) -> i32 {
@@ -191,32 +208,4 @@ impl HasReward for RoomLevel {
             .map(|r| r.calculate_reward())
             .fold(0, |acc, len| acc + len);
     }
-}
-
-pub fn generate_individual() -> RoomLevel {
-    let mut level = RoomLevel::new(
-        "RoomLevel".to_owned(),
-        Vec::new()
-        // generation::generate_rooms_from_positions(vec![
-        //     Pos(1, 0), Pos(2, 0), Pos(2, 1), Pos(2, 2), Pos(2, 3), Pos(3, 3), Pos(3, 2), Pos(3, 1),
-        //     Pos(4, 1), Pos(4, 0), Pos(4, 2)
-        // ])
-        // vec![
-        //     room1,
-        //     Room::new("Room number 2".to_owned(), Pos(1, 0), Vec::new()),
-        //     Room::new("Room number 3".to_owned(), Pos(2, 0), Vec::new()),
-        //     Room::new("Room number 4".to_owned(), Pos(3, 0), Vec::new()),
-        //     Room::new("Room number 5".to_owned(), Pos(4, 0), Vec::new()),
-        // ],
-    );
-
-    level.rooms = generation::generate_rooms_in_level(&level, N_ROOMS_PER_LEVEL);
-
-    for i in 0..level.rooms.len() {
-        // The lifetime of room only needs to be this long
-        if let Some(r) = level.rooms.get_mut(i) {
-            r.populate(N_ELEMENTS_PER_ROOM);
-        }
-    }
-    level
 }
