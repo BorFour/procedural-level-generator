@@ -18,6 +18,7 @@ use position::search_path_in_level;
 use position::Pos;
 use room;
 use room::Room;
+use constraints;
 
 static MUT_PROB: f64 = 0.85;
 static CROSS_PROB: f64 = 1.00;
@@ -99,11 +100,16 @@ impl Phenotype<i32> for RoomLevel {
     // How fit is this individual?
     fn fitness(&self) -> i32 {
         let result = search_path_in_level(&self);
-        match result {
-            Some(path) => self.get_rewards_from_path(&path.0)
+        if let Some(path) = result {
+            let mut f = self.get_rewards_from_path(&path.0)
                 .iter()
-                .fold(0, |a, acc| acc + a),
-            None => -999999,
+                .fold(0, |a, acc| acc + a);
+            f += constraints::NEUTRAL_CONS(&self);
+            f += constraints::TOO_SHORT_CONS(&self);
+            // TODO: apply constraints
+            return f;
+        } else {
+            return -9999999;
         }
     }
 
