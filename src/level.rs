@@ -1,4 +1,3 @@
-
 use rsgenetic::pheno::Phenotype;
 
 pub trait Level: Phenotype<i32> {

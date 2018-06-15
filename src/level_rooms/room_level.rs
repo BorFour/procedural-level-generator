@@ -11,8 +11,8 @@ use rand::prelude::*;
 
 use rsgenetic::pheno::Phenotype;
 
-use generation;
 use design_element::HasReward;
+use generation;
 use level::Level;
 use position::search_path_in_level;
 use position::Pos;
@@ -23,6 +23,8 @@ static MUT_PROB: f64 = 0.85;
 static CROSS_PROB: f64 = 1.00;
 static ZIP_CROSSOVER: bool = false;
 static N_ROOMS_PER_LEVEL: usize = 15;
+static MIN_ROOMS_PER_LEVEL: usize = 5;
+static MAX_ROOMS_PER_LEVEL: usize = 20;
 static N_ELEMENTS_PER_ROOM: usize = 5;
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -172,12 +174,14 @@ impl Phenotype<i32> for RoomLevel {
 
 impl Level for RoomLevel {
     fn generate_individual() -> RoomLevel {
-        let mut level = RoomLevel::new(
-            "RoomLevel".to_owned(),
-            Vec::new()
-        );
+        let mut level = RoomLevel::new("RoomLevel".to_owned(), Vec::new());
 
-        level.rooms = generation::generate_rooms_in_level(&level, N_ROOMS_PER_LEVEL);
+        // level.rooms = generation::generate_rooms_in_level(&level, N_ROOMS_PER_LEVEL);
+        level.rooms = generation::generate_rooms_in_level_range(
+            &level,
+            MIN_ROOMS_PER_LEVEL,
+            MAX_ROOMS_PER_LEVEL,
+        );
 
         for i in 0..level.rooms.len() {
             // The lifetime of room only needs to be this long

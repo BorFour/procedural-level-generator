@@ -1,5 +1,5 @@
 // use pathfinding::bfs::*;
-use pathfinding::prelude::{astar};
+use pathfinding::prelude::astar;
 
 use room_level::RoomLevel;
 

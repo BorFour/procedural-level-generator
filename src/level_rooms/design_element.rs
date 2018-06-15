@@ -35,7 +35,7 @@ impl GenericDesignElement {
             "coin".to_owned(),
             "hole".to_owned(),
             "foe".to_owned(),
-            "boss".to_owned()
+            "boss".to_owned(),
         ]
     }
 

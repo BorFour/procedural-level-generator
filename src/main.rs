@@ -4,9 +4,9 @@ extern crate pathfinding;
 extern crate rand;
 extern crate rsgenetic;
 
-mod level_rooms;
 mod generation;
 mod level;
+mod level_rooms;
 mod natural_selection;
 mod position;
 mod types;

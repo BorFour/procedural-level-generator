@@ -1,11 +1,11 @@
 extern crate serde;
 extern crate serde_json;
 
-use types::Location;
-use generation;
 use design_element;
 use design_element::HasReward;
+use generation;
 use position::Pos;
+use types::Location;
 
 #[derive(Serialize, Deserialize, Clone)]
 // #[derive(Clone, Serialize, Deserialize, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -17,9 +17,12 @@ pub struct Room {
     pub h: u64,
 }
 
-
 impl Room {
-    pub fn new(name: String, position: Pos, elements: Vec<design_element::GenericDesignElement>) -> Room {
+    pub fn new(
+        name: String,
+        position: Pos,
+        elements: Vec<design_element::GenericDesignElement>,
+    ) -> Room {
         Room {
             name: name,
             position: position,

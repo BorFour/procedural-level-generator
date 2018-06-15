@@ -55,3 +55,13 @@ pub fn generate_rooms_in_level(level: &RoomLevel, n_rooms: usize) -> Vec<Room> {
 
     return rooms;
 }
+
+pub fn generate_rooms_in_level_range(
+    level: &RoomLevel,
+    min_rooms: usize,
+    max_rooms: usize,
+) -> Vec<Room> {
+    let mut rng = rand::thread_rng();
+    let n_rooms: usize = Range::new(min_rooms, max_rooms + 1).sample(&mut rng);
+    generate_rooms_in_level(level, n_rooms)
+}

@@ -38,7 +38,6 @@ pub fn test_genetic(level: &RoomLevel) {
 }
 
 pub fn run_genetic_algorithm<T: Level>(iters: u64) -> T {
-
     let population_size: usize = 200;
     let mut population = (0..population_size)
         .map(|_i| T::generate_individual())
